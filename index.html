@@ -31,16 +31,6 @@
         <div id="tableBody"></div>
       </div>
     </div>
-
-    <script>
-      console.log("apples!!");
-      new WebSocket("ws://localhost:8000").onmessage = (event) => {
-        console.log("Received:", event.data);
-        if (event.data === "reload") {
-          location.reload(); // refresh on saved change
-        }
-      };
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
