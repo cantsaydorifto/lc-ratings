@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lc Rating</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Leetcode Ratings</h1>
+      <div class="filter">
+        <input
+          type="text"
+          id="filterInput"
+          placeholder="Filter by Title or Contest..."
+        />
+      </div>
+      <div class="table">
+        <div class="table-header">
+          <div class="cell id">ID</div>
+          <div class="cell idx">Q-Index</div>
+          <div class="cell">Title</div>
+          <div class="cell rating">
+            Rating
+            <button class="rating-btn" onclick="handleSort()">&darr;</button>
+          </div>
+          <div class="cell contest">Contest</div>
+        </div>
+        <div id="tableBody"></div>
+      </div>
+    </div>
+
+    <script>
+      console.log("apples!!");
+      new WebSocket("ws://localhost:8000").onmessage = (event) => {
+        console.log("Received:", event.data);
+        if (event.data === "reload") {
+          location.reload(); // refresh on saved change
+        }
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
